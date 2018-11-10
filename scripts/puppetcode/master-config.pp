@@ -6,14 +6,14 @@ user { 'luke':
     ensure=> present,
     shell => '/bin/bash',
     uid => '1001',
+    gid => '1001'
 }
 
-file { 'name':
-    ensure => file,
-    owner  => owner,
-    group  => group,
-    mode   => mode,
-    source => 'puppet:///modules/class/file.txt';
+file { '/home/luke':
+    ensure => directory,
+    owner  =>  '1001',
+    group  => 'luke',
+    mode   => '0700',
 }
 
 package { $packages:
