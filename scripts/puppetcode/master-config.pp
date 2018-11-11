@@ -1,4 +1,5 @@
-$packages = ["epel-release", "vim", "htop"]
+$packages = ['vim', 'htop', 'perf', 'strace', 'lsof', 'iftop', 'bind-utils']
+$services = ['sshd']
 
 user { 'luke':
     comment => 'Luke Brady',
@@ -16,7 +17,18 @@ file { '/home/luke':
     mode   => '0700',
 }
 
+package { 'epel-release':
+        ensure => installed,
+        provider => 'yum',
+}
+
 package { $packages:
     ensure => installed,
-    provider => "yum",
+    provider => 'yum',
 }
+
+service { $services:
+        ensure => running,
+        enable => true,
+}
+
