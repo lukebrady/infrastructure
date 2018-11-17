@@ -1,2 +1,2 @@
 # automation
-General repository for Puppet, Terraform, Salt, and Vagrant code.
+General repository for Puppet, Terraform, and Vagrant code.
